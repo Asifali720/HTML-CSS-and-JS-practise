@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    /* .relative {
+        position: relative;
+        width: 100%;
+        display: inline-block;
+        height: 400px;
+        background: #fff;
+        border: 1px solid gray;
+    }
+
+    .abs {
+        position: absolute;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid blue;
+        /* z-index: 10; */
+    /* } */
+
+    /* .abs1 {
+       position: absolute;
+       display: inline-block;
+       width: 50px;
+       height: 50px;
+       border: 1px solid yellow;
+       background: yellow;
+       top: 5px;
+       left: 5px;
+       z-index: 1;
+    } */
+
+    /* .abs2 {
+       position: absolute;
+       display: inline-block;
+       width: 50px;
+       height: 50px;
+       border: 1px solid red;
+       background: red;
+       z-index: 10;
+    } */
+
+    /* .box{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        background: brown;
+        z-index: 0;
+    } */
+
+    @keyframes boxAnimation {
+        0% {
+            left: 0;
+            top: 0;
+        }
+
+        25% {
+            left: 0;
+            top: calc(100% - 50px);
+        }
+
+        50% {
+            top: calc(100% - 50px);
+            left: calc(100% - 50px);
+            border-radius: 100%;
+        }
+
+        75% {
+            left: calc(100% - 50px);
+            top: 0;
+        }
+
+        100% {
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .box {
+        /* content: ''; */
+        width: 50px;
+        height: 50px;
+        background: rgb(0, 9, 128);
+        /* background: hsl(180, 30px, 10px); */
+        transition: linear 3s;
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        animation-name: boxAnimation;
+        animation-duration: 1s;
+        /* animation-fill-mode: forwards; */
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-duration: 3s;
+        /* animation-direction: alternate-reverse; */
+        animation-timing-function: ease-in-out;
+    }
+
+    .function {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 5px;
+    }
+
+    span,
+    button {
+        padding: 10px;
+        font-size: 10px;
+        border: 1px solid rgb(196, 194, 194);
+        border-radius: 3px;
+    }
+
+    button:hover {
+        background: skyblue;
+    }
+
+    .box1 {
+        width: 100px;
+        height: 100px;
+        background: yellow;
+        margin-top: 300px;
+        margin-left: 200px;
+        transition: 1s ease-in-out;
+    }
+
+    .box1:hover {
+        border-radius: 100%;
+        background: black;
+    }
+
+    p {
+        columns: 6;
+        /* column-width: 30%; */
+        text-align: justify;
+        border: 1px solid gray;
+    }
+
+    .content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px;
+    }
+
+    input {
+        width: 100px;
+        height: 20px;
+    }
+
+    .addbtn {
+        background: blue;
+        color: white;
+        border-radius: 3px;
+        font-size: 15px;
+        padding: 5px 10px;
+    }
+
+    .totalbillamount {
+        background: blue;
+        color: white;
+        border-radius: 3px;
+        font-size: 15px;
+        padding: 5px 10px;
+    }
+
+    .resturant {
+        display: inline-block;
+        align-items: center;
+        border: 1px solid gray;
+        border-radius: 5px;
+        background: #b4b2b2;
+        padding: 15px;
+        position: absolute;
+        left: 300px;
+    }
+
+    .control {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .js-model{
+        border: 1px solid gray;
+        padding: 10px;
+        /* box-shadow: 1px 5px 5px 0px black; */
+        background: black;
+        color: white;
+        transition: 0.2s ease-in-out;
+        display: none;
+    }
+    .close-btn{
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 10px;
+        color: white;
+        padding: 3px 10px;
+    }
+    .open-btn{
+        background: transparent;
+        border: 1px solid black;
+        border-radius: 10px;
+        color: black;
+        padding: 3px 10px;
+        margin-bottom: 5px;
+    }
+    .js-model:hover{
+        box-shadow: 1px 5px 5px 0px black; 
+    }
+    /* .box:hover{ */
+    /* transform: rotate(780deg); */
+    /* transform: scale(1.2);
+        background: rgb(240, 4, 4); */
+    /* transform: rotateX(180deg)
+                   rotateY(180deg)
+                   rotateZ(180deg); */
+    /* transform: translateX(50px)
+                    translateY(50px); */
+    /* transform: rotate3d(180deg); */
+    /* background: black;
+        color: white;           
+    } */
+</style>
+
+<body>
+    <h2>fruit!</h2>
+    <i class="fa fa-facebook"><span>/facebook</span></i>
+    <!-- <div class="container"> -->
+    <div class="box">
+        <h5>hello world</h5>
+    </div>
+    <div class="function" id="main">
+        <button id="addBtn">+</button>
+        <span id="currentValue">1</span>
+        <button id="minusBtn">-</button>
+    </div>
+    <div class="news">
+        <code>
+        <p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni placeat doloribus similique
+            asperiores
+            necessitatibus quaerat mollitia ab hic exercitationem dolor rerum aliquam aperiam numquam alias obcaecati
+            voluptates eius fugit a ipsa, natus sunt. In ratione cupiditate quod ipsam sit aspernatur officiis expedita,
+            quis odit quam, quidem cum sapiente distinctio laudantium officia veritatis perferendis itaque. Quibusdam
+            dolor
+            consectetur officia animi minima, natus numquam rerum quis perferendis est magni distinctio at autem hic
+            asperiores quisquam adipisci qui vero nesciunt magnam repudiandae doloribus modi voluptatem? Adipisci
+            inventore
+            maiores earum ratione illo non cupiditate corrupti sapiente maxime, dignissimos distinctio atque recusandae
+            tenetur voluptatum officia?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium cum voluptatem laboriosam at?
+            Inventore nisi minus architecto impedit culpa excepturi neque sapiente debitis natus perspiciatis corrupti
+            expedita autem aspernatur enim hic odio aperiam velit reprehenderit accusamus magnam quibusdam aliquam
+            numquam, distinctio explicabo! Debitis dolorum iure repellat sed quod, accusantium autem rem provident
+            quibusdam facere, hic, inventore iste totam nobis voluptatum tenetur accusamus consequatur. Porro deserunt
+            in impedit soluta sapiente reprehenderit, eveniet magni dicta ea quasi itaque facilis asperiores, cumque
+            omnis ipsum nesciunt? Quos et sint modi ex harum? Unde nobis qui esse iure reprehenderit maiores veritatis
+            molestias quos doloremque officiis!</p>
+        </code>
+    </div>
+    <button id="test">hello world</button>
+    <ul>
+        <li>number1</li>
+        <li>number2</li>
+        <li>number3</li>
+    </ul>
+    <p>
+        this is a link
+        <span id="link"></span>
+    </p>
+    <div class="resturant">
+        <h1>tips calculate</h1>
+        <div class="content">
+            <h4>Totalbill</h4> <input type="text" name="" id="billAmount">
+        </div>
+        <div class="content">
+            <h4>tip</h4> <input type="text" name="" id="tipAmount">
+        </div>
+        <span class="addbtn" onclick="calculate()">add</span>
+        <span class="totalbillamount">$</span>
+    </div>
+    <h4 id="elem"></h4>
+    <div class="box1">
+    </div>
+    <h4 class="game">guess lucky number</h4>
+
+    <button class="open-btn">open</button>
+    <div class="js-model">
+        <h2 class="model-title">This is a model</h2>
+        <h4 class="model-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur libero voluptas accusamus natus nihil,
+            totam temporibus. Nobis rerum totam corrupti. Dignissimos. Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Accusantium, nam, consequuntur sapiente earum consequatur quidem excepturi est id, iste
+            hic deleniti possimus at doloribus perspiciatis dolor. Culpa aliquam aliquid provident! Lorem, ipsum dolor
+            sit amet consectetur adipisicing elit. Quos error doloremque iure magnam, obcaecati minus officiis? Dicta
+            esse laborum suscipit, reprehenderit atque incidunt nihil in ducimus, eius vero exercitationem porro!
+        </h4>
+            <button class="close-btn">close</button>
+    </div>
+
+
+    <div class="control">
+        <h2>Hello Poppers!</h2>
+        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolorum a impedit beatae eveniet
+            repellendus.</h5>
+        <input type="text" class="bg-color" placeholder="background color">
+        <input type="text" class="color" placeholder="color">
+        <input type="text" class="font-size" placeholder="font size">
+    </div>
+
+    <!-- </div> -->
+    <!-- <div class="box"> -->
+    <!-- <div class="abs"> -->
+    <!-- <div class="abs1">test1</div>
+                <div class="abs2">test2</div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+
+    <script>
+        const addBtn = document.getElementById('addBtn')
+        const minusBtn = document.getElementById('minusBtn')
+        const currentValue = document.getElementById('currentValue')
+
+        addBtn.addEventListener('click', () => {
+            const currentValue = document.getElementById('currentValue').innerHTML
+            const updatedValue = Number(currentValue) + 1
+
+            if (updatedValue >= 16) {
+                return
+            }
+
+            document.getElementById('currentValue').innerHTML = updatedValue
+        })
+
+        minusBtn.addEventListener('click', () => {
+            const currentValue = document.getElementById('currentValue').innerHTML
+            const updatedValue = currentValue - 1
+
+            if (updatedValue <= 0) {
+                return
+            }
+
+            document.getElementById('currentValue').innerHTML = updatedValue
+        })
+
+        const name = 'asif'
+        const profession = 'web developer'
+        const sentence = 'my name is ' + name + ' and my profession is ' + profession
+
+        const content = document.getElementById('test')
+        content.addEventListener('click', () => {
+            content.innerHTML = (sentence)
+        })
+        const para = document.getElementById('para')
+        currentSentence = para.innerHTML
+
+        function calculate() {
+            const billAmount = Number(document.getElementById('billAmount').value)
+            const tipAmount = Number(document.getElementById('tipAmount').value)
+            // const tipPercent = tipAmount /100
+            const totalTip = billAmount * tipAmount / 100
+            const totalBillAmount = billAmount + totalTip
+            const btnResult = document.querySelector('.addbtn')
+            const totalAmountValue = document.querySelector('.totalbillamount')
+
+            // console.log(btnResult)
+            btnResult.innerHTML = `total tip is: $` + totalTip
+            totalAmountValue.innerHTML = `total bill is: $` + totalBillAmount
+            // console.log(tipAmount)
+        }
+
+        const bgColor = document.querySelector('.bg-color')
+        const color = document.querySelector('.color')
+        const fontSize = document.querySelector('.font-size')
+
+        const main = document.querySelector('.control')
+
+        bgColor.addEventListener('keyup', () => {
+            main.style.backgroundColor = event.target.value
+        })
+
+        color.addEventListener('keyup', () => {
+            main.style.color = event.target.value
+        })
+
+        fontSize.addEventListener('keyup', () => {
+            main.style.fontSize = event.target.value
+        })
+
+        const openBtn = document.querySelector('.open-btn')
+        const closeBtn = document.querySelector('.close-btn')
+        const title = document.querySelector('.model-title')
+        const text = document.querySelector('.model-text')
+       
+        class modal {
+            constructor(title='Default title', text='Default text'){
+                this.model = document.querySelector('.js-model')
+                this.title = title
+                this.text = text
+            }
+            open(){
+                this.model.style.display = 'block'
+            }
+            close(){
+                this.model.style.display = 'none'
+            }
+            newContent(){
+                console.log(this.title, this.text)
+                if(this.title == undefined){
+                this.model.querySelector('.model-title').innerHTML=title
+                }
+                if(this.text == undefined){
+                this.model.querySelector('.model-text').innerHTML=text
+                }
+            }
+        }
+
+        const Modal = new modal('new tiltle', 'new text')
+
+        openBtn.addEventListener('click', () => {
+            Modal.open()
+        })
+
+        closeBtn.addEventListener('click', () => {
+           Modal.close()
+        })
+
+        // const sentences = currentSentence.join('')+('')
+        //    const totalBill = 2500
+        // function tip(totalBill, tip=10){
+        //     tip = tip /100
+        //     const totalAmount = totalBill * tip
+        //     totalBill = totalBill + tip
+        //     return totalBill
+        // }
+        // const totalBillAmount = tip(233, 15)
+        // console.log(totalBillAmount)
+
+        // const li = document.querySelectorAll('li')
+        // li[1].innerHTML = 'hello world'
+        // const letUrl = prompt('enter url')
+        //    const url = document.getElementById('url')
+        // if (letUrl == null) {
+        //     alert('click ok for cancel')
+        // }
+        // if (letUrl.substr(0, 4) != 'http') {
+        //     url = 'http' + letUrl
+        //     alert('not valid url plz refresh the page and try again with valid url')
+        // } else {
+        //     const spanNode = document.getElementById('link')
+        //     const html = "<a href='" + letUrl + "'>" + letUrl + "</a>'"
+        //     spanNode.innerHTML = html
+        // }
+
+
+        // const game = document.querySelector('.game')
+        //     const magicNumber = 42
+        //     while(true){
+        //     const number = Number(prompt('plz enter number'))
+        //     if(number && number == magicNumber){
+        //         alert('You win :)')
+        //         break
+        //     }
+        // }
+        // const elem = document.getElementById('elem')
+        // const inputNumber = prompt('enter number only')
+        // const validNumber = Number(inputNumber)
+        // if(validNumber && Number){
+        //     alert('its not a number plz input number')
+        // }
+        // if(validNumber >= 18){
+        //     elem.innerHTML = 'you are able to get passport'
+        // }
+        // if(validNumber <= 18){
+        //     elem.innerHTML = 'you are not able to get passport'
+        // }
+        // else{
+        //     alert('thanks for using')
+        // }
+
+
+
+        // const styleSentence = sentences.join('')+('')
+        // para.innerText = 'The childish Mr Bean uses his unusual wit to fulfil everyday tasks. But more often than not, he ends up creating trouble for himself and those around him.'
+
+        // const time = prompt('enter time here')
+        // if (time > 5 && time < 12) {
+        //     alert('Good morning')
+        // }
+
+        // else if (time > 12 && time < 17){
+        //     alert('Good afternon')
+        // }
+
+        // else if (time > 17 && time < 21){
+        //     alert('Good evening')
+        // }
+
+        // else {
+        //     alert('soo ja chotiye')
+        // }
+
+        // const fruite = prompt('hello sir which fruit you want!');
+        // switch (fruite) {
+        //     case 'apple':
+        //         console.log('120 rupees per kg');
+        //         break;
+        //     case 'mango':
+        //         console.log('120 rupees per kg');
+        //         break;
+        //     case 'bnanna':
+        //         console.log('120 rupees per kg');
+        //         break;
+        //     case 'Grappes':
+        //         console.log('120 rupees per kg');
+        //         break;
+        //     case 'Orange':
+        //         console.log('120 rupees per kg');
+        //         break;
+        //     default:
+        //         console.log(`${fruite} not availble may be able tomorrow`)
+        // }
+        // console.log('have a good day sir')
+
+        // for (let i = 0; i < 100; i++){
+        //     console.log('hello freinds its mr roboot')
+        // }
+
+        // const product = {
+        //     name : 'laptops',
+        //     quantity : 10
+        // };
+
+        // for(const key in product){
+        //     console.log(key, product[key])
+        // }
+
+        //  const names = ['apple','dell','hp','lenovo'];
+        //  for(const index in names){
+        //     console.log(index, names[index])
+        //  }
+
+        //  for(const name of names){
+        //     console.log(name)
+        //  }
+
+        // function cookNoodle(noddles, water, pan) {
+        //     console.log('your noddle is ready in  '
+        //         + noddles * 2 + ' minutes' + ' and ingrediants used are ' + noddles + ' packets of noddles ' + water + ' cupes of water ' + pan + ' pans ')
+        // }
+
+        // cookNoodle(4, 4, 1);
+
+        // const name = prompt('Plz enter your name');
+        // const id = prompt('Plz enter your id');
+        // const fav = prompt('Plz enter your favorites like writer or singer etc');
+
+        // function verifiedSecurity(name, id, fav){
+        //     const cyberSecurity = name + ' verified ' + id + ' verified ' + fav + ' verified '
+
+        //     return cyberSecurity;
+        // }
+
+        // const verifIcation = verifiedSecurity(name, id, fav);
+        // console.log(verifIcation)
+
+        // const human = {
+        //     title: 'nomangul',
+        //     name() {
+        //         console.log('how are you noman')
+        //     }
+        // }
+        // const human_1 = {...human}
+        // human_1.title = ('asif')
+
+        // function getHuman(name, age, gender) {
+        //     const human = {
+        //         name: name,
+        //         age: age,
+        //         gender: gender,
+        //     }
+
+        //     return human;
+        // }
+        // console.log(getHuman('asif', '21', 'male'))
+
+        // function Product(name, price, discount, itemCode) {
+        //     this.itemName = name;
+        //     this.itemPrice = price;
+        //     this.itemDiscount = discount;
+        //     this.itemCode = itemCode;
+        //     this.discountValue = function () {
+        //         return price * discount / 100;
+        //     }
+        // }
+        // const mobile = new Product('iphone', 350000, 5, 'E34')
+        // console.log(mobile.discountValue())
+
+        // function createProduct(name, price, code){
+        //     return{
+        //         itemName: name,
+        //         itemPrice: price,
+        //         itemCode: code,
+        //     }
+        // }
+        // console.log(createProduct('mobile', 20000, 'E40'))
+
+        // class  Product{
+        //     constructor(itemName){
+        //         this.itemName = itemName;
+        //     }
+        //     getItemName(){
+        //         return this.itemName + 'company is Iphone'
+        //     }
+        // }
+
+        // class laptop1 extends Product{
+        //     constructor(itemName){
+        //     super(itemName);
+        //     }
+        //     getItemName(){
+        //         return this.itemName + 'company is IOS'
+        //     }
+        // }
+        // const mobile = new Product('mobile', 50000, 5, 'M33');
+
+        // const Product1 = class {
+        //     constructor(itemName, itemPrice, itemDiscount, itemCode){
+        //         this.itemName = itemName;
+        //         this.itemPrice = itemPrice;
+        //         this.itemDiscount = itemDiscount;
+        //         this.itemCode = itemCode;
+        //     }
+        //     get getDiscountValue(){
+        //         return this.itemDiscount * this.itemPrice/100;
+        //     }
+        //     set setDiscountValue(value){
+        //         this.itemDiscount = value;
+        //     }
+        // }
+        // const laptop = new Product1('laptop', 150000, 2, 'b23')
+        //  const name = ['asif', 'noman', 'abid']
+
+        //  name.indexOf('noman');
+        //  name.lastIndexOf('noman');
+        //  name.includes('noman');
+
+        //  const channel = [{
+        //     name: 'noman',
+        //     subcribers: 10000000000
+        //  }, {
+        //     name: 'asif',
+        //     subcribers: 250000
+        //  }, {
+        //     name: 'abid',
+        //     subcribers: 1000000000
+        //  }];
+
+        //  const name1 = ['asif', 'noman', 'abid']
+        //  const name2 = ['asif', 'noman', 'abid']
+        //  const name3 = [...name1,...name2,...name]
+
+
+        // for(let i = 0;i<name3.length; i++){
+        //     // console.log(name3[i])
+        // }
+
+
+        // for(let name of name3){
+        //     // console.log(name)
+        // }
+
+        // name3.forEach(function(name,index){
+        //     // console.log(name,index)
+        // })
+
+        // const student = ['y','o','u','s','u','f']
+        // // console.log(student.join(''))
+
+        // const cities =[
+        //     {name: 'karachi', population: 12},
+        //     {name: 'hyderabad', population: 9},
+        //     {name: 'punjab', population: 20},
+        //     {name: 'lahore', population: 7},
+        //     {name: 'skardu', population: 3},
+        //     {name: 'gilgit', population: 1},
+        //     {name: 'hunza', population: 2},
+        //     {name: 'balochistan', population: 23},
+        // ]
+        //  const filterCity = cities.map(city => {
+        //     return{
+        //         name: city.name,
+        //         population: city.population 
+        //     }
+        //  })
+        //  console.log(filterCity)
+        // let sum = 0
+        // for(i = 0; i <cities.length; i++){
+        //     sum += cities[i].population
+        // }
+        // console.log(sum)
+
+        // const filterCity = cities.filter(city => {
+        //     console.log(city)
+        //     return city.population > 10
+        // });
+        // console.log(cities.every(city => city.population > 0));
+
+
+        // 0 -> 10
+        // 1 -> 
+
+        // const counter = createCounter()
+        // const counter1 = createCounter()
+
+        // function createCounter(){
+        //     return{
+        //         count: 0,
+        //         increment: function() {
+        //             this.count++
+        //         }
+        //     }
+        // }
+        // counter.increment()
+        // counter.increment()
+        // counter.increment()
+        // counter.increment()
+        // counter.increment()
+        // console.log(counter)
+
+        // function Car(name){
+        //     this.name = name
+        //     function car(){
+        //         console.log(name)
+        //     }
+        // }
+        // let firari = new Car('farari')
+
+        let square = {
+            side: 5,
+            get area() {
+                return this.side * this.side
+            }
+        }
+        square.side = 10
+        console.log(square.area)
+
+        // const string = []
+        // function stringConcat(separater, ...strings){
+        //     let empty = ''
+        //     strings.forEach((separater, i) => {
+        //         empty += string + separater
+        //     });
+        //     return empty
+        // }
+        // console.log(stringConcat('hello', 'world', 'kill'))
+
+        let [first, second, third, ...other] = [1, 2, 3, 4, 5, 6]
+
+        console.log(first)
+        console.log(second)
+        console.log(third)
+        console.log(other)
+
+        function matchHouse(house) {
+            if (house <= 0) {
+                return 0
+            }
+            else {
+                return house * 6 - house + 1
+            }
+        }
+        console.log(matchHouse(15))
+
+    </script>
+</body>
+
+</html>
